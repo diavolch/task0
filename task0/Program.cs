@@ -15,27 +15,31 @@ int findLengthOfNewArray(string[] array)
     }
     return j;
 }
-
-string[] findLessThenThreeSimbols(string[] someArray , int j)
+string[] findLessThenThreeSimbols(string[] someArray, int j)
 {
     string[] array = new string[j];
-    for (int i = 0; i < someArray.Length; i++)
-    {
-        if (someArray[i].Length <= 3)
+    int n = 0;
+        for (int i = 0; i < someArray.Length; i++)
         {
-            for (int n = 0; n < j; n++)
+            if (someArray[i].Length <= 3)
             {
-                array[n] = someArray[i];   
+                array[n] = someArray[i];
+                Console.WriteLine(n + " " + someArray[i]);
+                n++;
             }
         }
-    }
     return array;
 }
 
-string[] array = { "hello", "2", "world", ";-)"};
+void printArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+}
+
+string[] array = { "hello", "2", "world", ";-)" };
 int length = findLengthOfNewArray(array);
 string[] result = findLessThenThreeSimbols(array, length);
-foreach (var value in  result) {
-    Console.Write(value + " ");
-}
-//Console.WriteLine(length);
+printArray(result);
